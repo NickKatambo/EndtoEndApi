@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Catalog.Dtos;
 using Catalog.Entities;
 using Catalog.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -10,24 +12,24 @@ namespace Catalog.Controllers
     [Route("[controller]")]
     public class ItemsController : ControllerBase
     {
-        private readonly InMemoItemsRepository repository;
+        private readonly IItemsRepository repository;
 
-        public ItemsController()
+        public ItemsController(IItemsRepository repository)
         {
-            repository = new InMemoItemsRepository();
+            this.repository = repository;
         }
 
         // GET /items
         [HttpGet]
-        public ActionResult<IEnumerable<Item>> GetItems()
+        public ActionResult<IEnumerable<ItemDto>> GetItems()
         {
-            var items = repository.GetItems();
-            return  Ok( items);
+            var items = repository.GetItems().Select(item => item.AsDto());  // Some nice stuff here about Data Transfer Object and Extension methods
+            return Ok(items);
         }
 
         // GET /items/{id}
         [HttpGet("{id}")]
-        public ActionResult<Item> GetItem(Guid id) 
+        public ActionResult<ItemDto> GetItem(Guid id) 
         {
             var item = repository.GetItem(id);
 
@@ -35,7 +37,7 @@ namespace Catalog.Controllers
             {
                 return NotFound();
             }
-            return item;
+            return Ok(item.AsDto());
         }
     }
 }
