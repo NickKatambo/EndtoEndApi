@@ -39,3 +39,6 @@ C:\Yann\source\repos\EndtoEndApi\Catalog\bin\Debug\net5.0\runtimes\win\native\sn
 C:\Yann\source\repos\EndtoEndApi\Catalog\bin\Debug\net5.0\runtimes\linux\native\libmongocrypt.so
 C:\Yann\source\repos\EndtoEndApi\Catalog\bin\Debug\net5.0\runtimes\osx\native\libmongocrypt.dylib
 C:\Yann\source\repos\EndtoEndApi\Catalog\bin\Debug\net5.0\runtimes\win\native\mongocrypt.dll
+C:\Yann\source\repos\EndtoEndApi\Catalog\bin\Debug\net5.0\HealthChecks.MongoDb.dll
+C:\Yann\source\repos\EndtoEndApi\Catalog\bin\Debug\net5.0\Microsoft.Extensions.Diagnostics.HealthChecks.dll
+C:\Yann\source\repos\EndtoEndApi\Catalog\bin\Debug\net5.0\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
